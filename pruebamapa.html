@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="j_idt78">
+            <script type="text/javascript">
+                var session = localStorage.getItem('session');
+                var user = JSON.parse('null');
+                if (!window.app)
+                    window.app = {networkStatus: {connected: true}};
+                if (!user)user={};
+                if (!user.ext)
+                    user.ext = {perms: {}};
+                if (!user.ext.perms)
+                    user.ext.perms = {};
+                var v = user.ext.perms;
+                if (v)
+                    for (var ix = 0; v.length > ix; ix++) {
+                        v[v[ix]] = 1;
+                    }
+                window.app.session = user;
+                window.params ={};
+            </script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="icon" type="image/x-icon" href="/fs/images/favicon.png" />
+            <link rel="shortcut icon" href="/fs/images/favicon.png" type="image/x-icon" />
+            <title>MAPA DE RIESGOS - GOBIERNO REGIONAL DE ANCASH
+            </title>
+            <meta name="theme-color" content="#0f62ac" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta property="og:image" />
+            <meta property="og:site_name" content="GOBIERNO REGIONAL DE ANCASH" />
+            <meta property="og:title" content="Mapa de Riesgos" />
+            <meta property="og:description" />
+            <meta property="og:url" content="www.regionancash.gob.pe/decaa/obresecobresec/mapa-riesgo" />
+            <!--link rel="stylesheet" href="/cdn/components.css"/-->
+            <link rel="stylesheet" type="text/css" href="/cdn/isobit.css?v=0006" />
+            <style>
+                a.ui-user{
+                    background-image: url(/thumb/36/foto/.jpg) !important;
+                    background-repeat: no-repeat !important;
+                    background-position: 6px 6px !important;
+                    background-size: 27px;
+                    padding-left: 39px !important;
+                }
+                .ui-dialog-title,form > div > div > .ui-panel-title{
+                    background-size: 20px !important;
+                    background: url("/fs/images/favicon.png") no-repeat scroll 0 0 transparent;
+                }
+                .ui-layout-pane-center > div > div > div > .ui-panel-title{
+                    padding-left: 25px !important;
+                    background-size: 20px !important;
+                    background: url("/fs/images/favicon.png") no-repeat scroll 0 0 transparent;
+                }
+            </style>
+            <script>
+                domain = 'http://127.0.0.1:8181';
+            </script>
+            <link rel="stylesheet" href="/cdn/all.min.css" />
+            <script src="/cdn/vue.js?contextPath=/obresec"></script>
+            <script src="/cdn/axios.min.js"></script>
+            <script src="/cdn/vue-ui.js?v=0002"></script>
+            <script>
+                    /*if (window.location.pathname.indexOf('/admin') > -1)
+                        axios.get('/api/session/logged').then(function (r) {
+                            if (1 > r.data) {
+                              //  axios.get('/api/logout').then(function (r) {
+                                   // if (r.data) {
+                                        location.reload();
+                                    //}
+                               // });
+                            }
+                        });*/
+            </script><script type="text/javascript" src="/obresec/faces/javax.faces.resource/jsf.js?ln=javax.faces&amp;stage=Development"></script></head><body>
+        <style>
+            .v-search > div > .ui-dialog-content{
+                padding: 0px;
+            }
+            .x-megamenu-button div {
+                background-color: white;
+                height: 4px;
+                margin-top: 4px;
+            }
+            body{
+                margin-top: 0px; 
+                overflow-y: unset; 
+            }
+            .x-menu-list {
+                z-index: 10;
+            }
+            .x-menu-list > li > a {
+                padding: 10px;
+                width: calc(100% - 20px);
+                color: black;
+            }
+            .v-menu-main > .tre{
+                overflow-y: auto;
+                height: calc(100% - 30px);
+            }
+        </style>
+        <div id="page-header">
+            <div>
+                <ul class="v-menubar">
+                    <li style="float:left">
+                        <a class="x-logo" href="/">
+                            <span class="ui-menuitem-icon"></span>                      
+                        </a>
+                    </li>
+                    <!--a href="#" class="ui-user no-link ui-menuitem-link ui-submenu-link ui-corner-all _" v-on:click="toggle" tabindex="-1"&gt;
+                        &lt;span class="ui-menuitem-text" style="float:left;padding-top:2px"&gt;&lt;/span&gt;
+                        &lt;i class="fa fa-user-circle fa-lg"&gt;&lt;/i&gt;
+                    &lt;/a--><li class="ui-menuitem ui-widget" role="menuitem" style="float:right"><a class="ui-menuitem-link" href="/register">Registrarme</a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="float:right"><a class="ui-menuitem-link" href="/admin"><span style="float:left" class="ui-menuitem-icon ui-icon ui-icon-key"></span><span class="ui-menuitem-text">Iniciar Sessión</span></a></li>
+                </ul>
+            </div>
+        </div>
+            <div><link href="/cdn/v-websocket.css" rel="stylesheet" />
+<script src="/cdn/v-websocket.js" type="text/javascript"></script>
+<v-websocket url="wss://web.regionancash.gob.pe/ws/ws" class="v-chb"></v-websocket>
+<script>
+let menu = document.getElementById('user-menu');
+// create a new li node
+let li = document.createElement('li'),a2 = document.createElement('a'),i = document.createElement('i');
+i.className='fa fa-comments';
+i.id="chat-button";
+a2.appendChild(i);
+li.appendChild(a2);
+menu.parentNode.appendChild(li);
+
+        	new Vue({
+        		el:'.v-chb'
+        	});
+        </script>
+<style>
+
+.v-chat-controls > input,.v-chat-controls > textarea{
+width: calc(100% - 63px)!important;
+display:inline-block !important;
+}
+.v-chat-controls > button{
+float:right;
+}
+.v-menubar .fa{
+font-size: 22px;
+    margin: 1px 2px;
+}
+.v-menubar a{
+cursor:pointer;
+}
+</style>
+            </div>
+        <div fullPage="true">
+            <div id="page-content" position="center" style="overflow: hidden"><html xmlns="http://www.w3.org/1999/xhtml">
+    <script src="/obresec/shape.js"></script>
+    <v-panel id="display">
+        <div>
+        <v-map id="ol-map" ref="map" v-on:build="mapBuild" style="height:100%;border: 1px solid #BBB;width: calc(100% - 301px);display:inline-block;">
+            <v-layer-control ref="layerControl" v-on:render="layerControlRender" v-on:scope="layerControlScope"></v-layer-control>
+            <v-layer ref="layer" src="/obresec/api/summary" method="post" v-bind:filters="mapFilters" v-on:load="layerLoad" v-on:select="layerOnChange"></v-layer>
+            <v-overlay ref="overlay" v-bind:header="'DELITO Nº '+(o.crime?pad(o.crime.id,6):'')" v-model="o.crime" v-bind:src="'/admin/obresec/api/crime/'+(o.crime?o.crime.id:0)">
+                <template v-slot:default="{value}">
+                    <template v-if="value.ext">
+                        <template v-if="value.crimeType">
+                            <label>Descripcion:</label>
+                            <div>{{value.description}}</div>
+                            <label>Categoria:</label>
+                            <div>{{value.crimeType.crimeCategory.name}}</div>
+                            <label>Tipo:</label>
+                            <div>{{value.crimeType.name}}</div>
+                            <label>Provincia:</label>
+                            <div>{{value.ext.provinceName}}</div>
+                            <label>Distrito:</label>
+                            <div>{{value.ext.districtName}}</div>
+                            <template v-if="value.dependencyName">
+                                <label>Comisaria:</label>
+                                <div>{{value.dependencyName}}</div>
+                            </template>
+                            <template v-if="value.address">
+                                <label>Ubicación:</label>
+                                <div>{{value.address}}</div>
+                            </template>
+                            <template v-if="value.observation">
+                                <label>Observacion:</label>
+                                <div>{{value.observation}}</div>
+                            </template>
+                        </template>
+                        <label>Fecha:</label>
+                        <div>{{value.fecha|date('date')}}</div>
+                        <v-fieldset legend="Agraviante" v-if="value.criminalSex||value.criminalAge">
+                            <template v-if="value.criminalSex">
+                                <label>Sexo:</label>
+                                <div>{{value.criminalSex=='M'?'MASCULINO':'FEMENINO'}}</div>
+                            </template>
+                            <template v-if="value.criminalAge">
+                                <label>Edad:</label>
+                                <div>{{value.criminalAge}}</div>
+                            </template>
+                            <template v-if="value.ext.criminalCountry">
+                                <label>País de origen:</label>
+                                <div>{{value.ext.criminalCountry}}</div>
+                            </template>
+                        </v-fieldset>
+                        <v-fieldset legend="Victima" v-if="value.victimSex||value.victimAge">
+                            <template v-if="value.victimSex">
+                                <label>Sexo:</label>
+                                <div>{{value.victimSex=='M'?'MASCULINO':'FEMENINO'}}</div>
+                            </template>
+                            <template v-if="value.victimAge">
+                                <label>Edad:</label>
+                                <div>{{value.victimAge}}</div>
+                            </template>
+                            <template v-if="value.ext.victimCountry">
+                                <label>País de origen:</label>
+                                <div>{{value.ext.victimCountry}}</div>
+                            </template>
+                        </v-fieldset>
+                    </template>
+                </template>
+            </v-overlay>
+            <v-overlay ref="riskOverlay" v-bind:header="'RIESGO Nº '+(o.risk?pad(o.risk.id,6):'')" v-model="o.risk" v-bind:src="'/admin/obresec/api/risk/'+(o.risk?o.risk.id:0)">
+                <template v-slot:default="{value}">
+                    <template v-if="value.ext">
+                        <template v-if="value.description">
+                            <label>Descripcion:</label>
+                            <div>{{value.description}}</div>
+                        </template>
+                        <label>Tipo:</label>
+                        <div>{{value.type.name}}</div>
+                        <label>Provincia:</label>
+                        <div>{{value.ext.provinceName}}</div>
+                        <label>Distrito:</label>
+                        <div>{{value.ext.districtName}}</div>
+                        <template v-if="value.fechaIni">
+                            <label>Desde:</label>
+                            <div>{{value.fechaIni|date('date')}}</div>
+                        </template>
+                        <template v-if="value.fechaFin">
+                            <label>Hasta:</label>
+                            <div>{{value.fechaFin|date('date')}}</div>
+                        </template>
+                        <v-fieldset legend="Victima" v-if="value.victimSex||value.victimAge">
+                            <template v-if="value.victimSex">
+                                <label>Sexo:</label>
+                                <div>{{value.victimSex=='M'?'MASCULINO':'FEMENINO'}}</div>
+                            </template>
+                            <template v-if="value.victimAge">
+                                <label>Edad:</label>
+                                <div>{{value.victimAge}}</div>
+                            </template>
+                            <template v-if="value.ext.victimCountry">
+                                <label>País de origen:</label>
+                                <div>{{value.ext.victimCountry}}</div>
+                            </template>
+                        </v-fieldset>
+                    </template>
+                </template>
+            </v-overlay>
+        </v-map>
+        <div style="float:right;width:298px;display:inline-block;height:100%">
+            <a href="/obresec" style="border-bottom: 1px solid #BBB;display: block;height:80px">
+                <img id="obresec-logo" style="height:80px" width="100%" src="/obresec/banner.png" />
+            </a>
+            <div style="height:calc(100% - 81px);overflow-y: auto">
+                <div class="params v-form" style="padding:5px">
+                    <v-button value="ANCASH" v-on:click="$refs.layerControl.setScope(0);filters.provinceId=null;filters.districtId=null;" style="display:block"></v-button>
+                    <label>Provincia:</label>
+                    <v-select v-model="filters.provinceId" name="province" ref="provinceSelect" required="required" v-on:input="changeProvince({provinceId:parseInt(filters.provinceId)})">
+                        <option value="">Select One...</option>
+                        <v-options url="/admin/directory/api/province/0/0" v-bind:filters="{regionId:2}" storage="province" value-field="code" display-field="name"></v-options>
+                    </v-select>
+                    <template v-if="filters.provinceId">
+                        <label>Distrito:</label>
+                        <v-select ref="district" v-on:mounted="changeProvince" v-model="filters.districtId" autoload="false" v-on:input="changeDistrict">
+                            <option v-bind:value="filters.provinceId">Todos</option>
+                            <v-options url="/admin/directory/api/district/0/0" storage="district" value-field="code" display-field="name"></v-options>
+                        </v-select>
+                    </template>
+                    <div v-if="perms.ACCESS_CORESEC">
+                        <div>
+                            <label>Desde</label>
+                            <v-calendar v-model="filters.from" pattern="dd/MM/yyyy" delay="2000" showOn="button"></v-calendar>
+                        </div>
+                        <div>
+                            <label>Hasta:</label>
+                            <v-calendar v-model="filters.to" pattern="dd/MM/yyyy" delay="2000" showOn="button"></v-calendar> 
+                        </div>
+                    </div>
+                    <div v-if="!perms.ACCESS_CORESEC">
+                        <div style="display: inline-block;width: calc(50% - 5px)">
+                            <label>Año</label>
+                            <v-number delay="1000" class="center" v-model="filters.year" v-on:input="loadMap"></v-number>
+                        </div>
+                        <div style="display: inline-block;width: 50%">
+                            <label>Mes:</label>
+                            <v-select v-model="filters.month" v-on:input="loadMap" style="display:block;width: 100%">
+                                <option>Select One...</option>
+                                <option v-for="(m,i) in month" v-bind:key="'m'+i" v-bind:value="i+1">{{m}}</option>
+                            </v-select>
+                        </div>
+                    </div>
+                    <template v-if="o.crimeSummary">
+                        <div class="bold" style="margin:5px 0px">Resumen de delitos</div>
+                        <v-table v-bind:selectable="false" v-on:row-select="selectRow" row-style-class="row[5]?'disabled':''" v-on:updated="tableUpdated" v-bind:key="'c-'+c" v-bind:value="o.crimeSummary">
+                            <template v-slot="{row}">
+                                <td width="24" align="center" class="x-shape">
+                                    <span style="display: inline-block" v-bind:key="row.shape+'-'+row.color" data-size="15" v-bind:style="{color: '#'+row[3],backgroundColor: '#'+row[3]}" class="shape square" v-bind:data-symbol="row[4]"></span>
+                                </td>
+                                <td header="TIPO" sort="1">{{row[1]}}</td>
+                                <td header="CANTIDAD" width="60" class="right" sort="2">{{row[2]}}</td>
+                            </template>
+                            <template v-slot:summary="">
+                                <td width="24"></td>
+                                <td>TOTAL</td>
+                                <td width="60" class="right">{{o.total}}</td>
+                            </template>
+                        </v-table>
+                    </template>
+                    <template v-if="o.riskSummary">
+                        <div class="bold" style="margin:5px 0px">Resumen de Riesgos</div>
+                        <v-table v-bind:selectable="false" v-on:row-select="selectRow" row-style-class="row[5]?'disabled':''" v-on:updated="tableUpdated" v-bind:key="'r-'+c" v-bind:value="o.riskSummary">
+                            <template v-slot="{row}">
+                                <td width="24" align="center" class="x-shape">
+                                    <span style="display: inline-block" v-bind:key="row.shape+'-'+row.color" data-size="15" v-bind:style="{color: '#'+row[3],backgroundColor: '#'+row[3]}" class="shape square" v-bind:data-symbol="row[4]"></span>
+                                </td>
+                                <td header="TIPO" sort="1">
+                                    {{row[5]}}{{row[1]}}</td>
+                                <td header="CANTIDAD" width="60" class="right" sort="2">{{row[2]}}</td>
+                            </template>
+                            <template v-slot:summary="">
+                                <td width="24"></td>
+                                <td>TOTAL</td>
+                                <td width="60" class="right">{{o.total}}</td>
+                            </template>
+                        </v-table>
+                    </template>
+                    <div ref="paa" columns="2" layout="grid" style="margin-top:10px">
+                        <v-button v-on:click="report" style="width: calc(47% - 2px);" class="obresec" value="Generar Reporte"></v-button>
+                        <v-button v-on:click="open($refs.generateMap)" style="width: calc(53% - 2px);" class="obresec xyz" value="Descargar Mapa"></v-button>
+                    </div>
+                </div>
+                <div style="height:0px;width:280px; overflow: auto">
+                    <div id="map2" style=" background-color: #66ff66; width: 3000px; height: 3000px"></div>
+                    <img id="company-logo" src="/fs/logo_white.jpg" />
+                    <img id="compass" src="/obresec/compass.png" />
+                </div>
+            </div>
+                <v-panel ref="generateMap" header="Descargar Mapa" style="display: none">
+                    <div class="v-form" style="padding: 10px">
+                        <v-fieldset legend="Tipo">
+                            <v-radio-group v-model="o2.type">
+                                <v-radio value="1" label="Simple"></v-radio>
+                                <v-radio value="2" label="Agrupado"></v-radio>
+                                <v-radio value="3" label="Calor"></v-radio>
+                            </v-radio-group>
+                        </v-fieldset>
+                        <v-fieldset legend="Formato Archivo">
+                            <v-radio-group v-model="o2.format">
+                                <v-radio value="PDF"></v-radio>
+                                <v-radio value="PNG"></v-radio>
+                            </v-radio-group>
+                        </v-fieldset>
+                        <center>
+                        <v-button icon="fa-download" value="Descargar" v-on:click="save"></v-button>
+                        </center>
+                    </div>
+            </v-panel>
+        </div>
+        </div>
+            
+        </v-panel>
+    <script>
+        _.ui({
+            data() {
+                return {last: null,filters:{from:null,ubigeo:null,to:null,month:null}, 
+                    o2:{format:'PDF',type:1},
+                    o: {risk:null,crime:null,selected:null,ext: {}}, c: 0, 
+                    layer: null,
+                    layers:[],
+                    month: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
+                    color: [
+                        '#ff0000', '#70bd41', '#373bd6', '#b9b02e', '#b92ead',
+                        '#4073CE', '#fff34c', '#1d7d25', '#073382', '#f7c7f3',
+                        '#ff0000', '#70bd41', '#373bd6', '#b9b02e', '#b92ead',
+                        '#4073CE', '#fff34c', '#1d7d25', '#073382', '#f7c7f3',
+                        '#ff0000', '#70bd41', '#373bd6', '#b9b02e', '#b92ead',
+                        '#4073CE', '#fff34c', '#1d7d25', '#073382', '#f7c7f3']}
+            },
+            watch:{
+                period(n){
+                    this.loadMap();
+                }
+            },
+            computed: {
+                mapFilters(){
+                    var f = JSON.clone(this.filters);
+                    f.from = f.from?new Date(f.from).getTime():null;
+                    f.to = f.to?new Date(f.to).getTime():null;
+                    f.ubigeo = f.districtId ? f.districtId:f.provinceId ? f.provinceId : null;
+                    return f;
+                },
+                period(){
+                    var me=this,f=me.filters;
+                    return f.from+'-'+f.to+'-'+f.year+'-'+f.month;
+                }
+            },
+            created() {
+                var me=this,f=me.filters;
+                me.perms.ACCESS_CORESEC =false;
+                if(me.perms.ACCESS_CORESEC){
+                    var date = new Date();
+                    f.from = new Date(date.getFullYear(), date.getMonth(), 1);
+                    f.to = new Date(date. getFullYear(), date. getMonth() + 1, 0);
+                }else{
+                    f.year = new Date().getFullYear();
+                    f.month = new Date().getMonth() + 1;
+                }
+                if ((window.location + '').indexOf('delito') > -1) {
+                    f.crime = 1;
+                } else
+                    f.risk = 1;
+            },
+            methods: {
+                save(){
+                    var me=this,filters=me.filters;
+                    me.saveAs('/api/geoserver/',{
+                        from_date:_.toDate(filters.from,'date-')
+                        ,to_date:_.toDate(filters.to,'date-')
+                        ,...me.o2,...filters});
+                },
+                report(){
+                    this.open("/admin/obresec/report/crime");
+                },
+                tableUpdated(t) {
+                    _.drawShapes(t.$el.querySelectorAll('.v-datatable-data .shape:not(._)'));
+                },
+                mapBuild(e){
+                    var m=e.map;                    
+                    var tooltip = document.createElement('div');
+                    tooltip.className='v-tooltip';
+                    document.body.appendChild(tooltip);
+                    var overlay = new ol.Overlay({
+                        element: tooltip,
+                        offset: [10, 0],
+                        positioning: 'bottom-left'
+                    });
+                   
+                    m.addOverlay(overlay);
+                    
+                    m.on('pointermove', (evt) => {
+                        var pixel = evt.pixel;
+                        var feature = m.forEachFeatureAtPixel(pixel,(f)=>{
+                            return f;
+                        });
+                        tooltip.style.display = feature ? '' : 'none';
+                        if (feature&&feature.data) {
+                            overlay.setPosition(evt.coordinate);
+                            tooltip.innerHTML = feature.data.description;
+                        }else{
+                            tooltip.style.display = 'none';
+                        }
+                    });
+                },
+                changeProvince(o) {
+                    var me = this;
+                    if (me.$refs.district) {
+                        me.$refs.district.load(this.last ? this.last : o);
+                        me.loadSummary();
+                        me.last = null;
+                        me.$refs.layerControl.setScope(me.filters.provinceId);
+                        delete me.filters.districtId;
+                    } else {
+                        me.$refs.layerControl.setScope(o.provinceId);
+                        me.last = o;
+                    }
+                },
+                changeDistrict() {
+                    this.$refs.layerControl.setScope(this.filters.districtId);
+                },
+                layerControlScope(f) {
+                    f = f.feature;
+                    var me = this, o = me.o;
+                    me.filters.provinceId = null;
+                    me.filters.districtId = null;
+                    me.filters.ubigeo = f.getId();
+                    if (f.getId() > 200) {
+                        me.filters.provinceId = 20000 > f.getId() ? f.getId() : Math.floor(f.getId() / 100);
+                        if (f.getId() > 20000) {
+                            me.filters.districtId = f.getId();
+                        }
+                    }
+                    me.loadSummary();
+                },
+                layerOnChange(evt){
+                    
+                    var me = this,overlay=me.$refs.overlay,f = evt.feature;
+                    if (f.data) {
+                        if(f.class=='crime')
+                            me.o.crime=f.data;
+                        else{
+                            overlay=me.$refs.riskOverlay;
+                            me.o.risk=f.data;
+                        }
+                        var view = evt.map.getView();
+                        view.animate({
+                            center: f.getGeometry().getCoordinates(),
+                            zoom: 17 > view.getZoom() ? 17 : view.getZoom(),
+                            duration: 500
+                        },()=>{
+                            overlay.open(evt);
+                        });
+                    }
+                },
+                loadSummary(){
+                    var me = this, o = me.o;
+                    axios.post('/obresec/api/summary',Vue.mergeDeep(me.mapFilters,{summary:1})).then((r) => {
+                        o.riskSummary = r.data.riskSummary;
+                        o.crimeSummary = r.data.crimeSummary;
+                        o.total = r.data.total;
+                        me.c++;
+                    });
+                },
+                selectRow(r) {
+                    this.c++;
+                    r=r.current;
+                    r[5] = !r[5];
+                    var l=this.$refs.map.getLayerById( 'type-' + r[0]);
+                        l.setVisible(!!!r[5]);
+                },
+                layerControlRender(o) {
+                    
+                },
+                layerLoad(o) {
+                    this.layer = o.target;
+                    
+                    var me = this, d = o.data, f = o.features, markerMap = {}, colorMap = {}, stroke = new ol.style.Stroke({color: '#540000', width: 1});
+                    d.ext = {};
+                    me.layers.forEach((e)=>{
+                        e.getSource().clear();
+                    });
+                    me.c++;
+                    var map=this.$refs.map.map;
+                    var l = d.riskList ? d.riskList : d.crimeList;
+                    var tt = d.riskList ? 'risk':'crime';
+                    var drawer=new _.drawShapes();
+                    for (var i = 0; l.length > i; i++) {
+                        o = l[i];
+                        if (o.lon && o.lat) {
+                            if(!o.description)o.description='SIN DESCRIPCION';
+                            var cor = [parseFloat(o.lon), parseFloat(o.lat)];
+                            if (cor[0] > -100) {
+                                cor = ol.proj.fromLonLat(cor);
+                            }
+                            var p = new ol.Feature(new ol.geom.Point(cor));
+                            p.class = tt;
+                            p.data = o;
+                            var t = o.crimeType ? o.crimeType : o.type;
+                            var type = o.crimeTypeId ? o.crimeTypeId : o.type.id;
+                            var m = markerMap[type];
+                            if (!m) {
+                                if (t&&t.color) {
+                                    co = '#' + t.color;
+                                } else {
+                                    co = me.color[Object.keys(markerMap).length];
+                                }
+                                m = markerMap[type]=new ol.style.Style({
+                                    image: new ol.style.Icon({
+                                        img: drawer.draw(document.createElement('canvas'),{
+                                            offsetWidth:16,offsetHeight:16,style:{color:co},dataset:{symbol:t.shape==0?'0':t.shape}
+                                        }),
+                                        imgSize: [16,16]
+                                    })
+                                });;
+                                colorMap['c-' + type] = co;
+                            }
+                            p.setStyle(m);
+                            var l3 = me.$refs.map.getLayerById( 'type-' + type);
+                            if (!l3) {
+                                //Aqui es donde se llama a un metodo
+                                map.addLayer(l3 = new ol.layer.Vector({
+                                    id: 'type-' + type,
+                                    source: new ol.source.Vector()
+                                }));
+                                l3.onSelect=me.layerOnChange;
+                                me.layers.push(l3);
+                            }
+                            
+                            l3.getSource().addFeature(p);
+                           
+                            //f.push(p);
+                        }
+                    }
+                    me.o = d;
+                },
+                loadMap(){
+                    if(this.layer)setTimeout(this.layer.load, 100);
+                }
+            }
+        });
+    </script>
+    <style>
+        .v-tooltip{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .xxx > div > div > div{
+            margin:0px !important;padding:0px !important;
+        }
+        .xxx > div > div > div:nth-child(1){
+            padding-right: 2px !important;
+        }
+        .xxx > div > div > div:nth-child(2){
+            padding-left: 2px !important;
+        }
+        .v-table{
+            width: 100%;
+        }
+        button.obresec {
+            -background-image: linear-gradient(to bottom,#ffffff,#ffffff) !important;
+            color:black !important;
+            text-shadow: none !important;
+            -border-width: 0px !important;
+        }
+        button.obresec.ui-state-hover {
+            background-image: linear-gradient(to bottom,#106e8a,#106e8a) !important;
+            color:white !important;
+        }
+        .square{
+            width: 18px; height: 18px
+        }
+        .disabled{
+            opacity: 0.4;
+        }
+        .xxx{
+            width: calc(100% - 2px) !important;
+        }
+        [data-type='crime']{
+            border: 1px #983838 solid !important;
+            background-color: #f1c2c2;
+        }
+    </style>  
+</html>
+            </div> 
+            <div class="hide v-menu-main" style="position:absolute;background-color: white;bottom:0px">
+                <div style="padding:5px" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">ADMINISTRACIÓN</span></div>
+            </div>
+            <script>
+                var a = document.querySelectorAll(".v-menu-main a:not(.v-action), .x-menu-list a:not(.v-action)");
+                var mainMenu = document.querySelectorAll(".v-menu-main")[0];
+                var x = document.getElementsByClassName("x-megamenu-button");
+                var overlay;
+                var app = new Vue({
+                    el: '#user-menu',
+                    methods: {
+                        toggle() {
+                            var menu = this.$el.children[1];
+                            var style = window.getComputedStyle(menu);
+                            menu.style.display = style.display === "none" ? '' : 'none';
+                        }
+                    },
+                    mounted() {
+                        var m = this;
+                        var a = document.querySelectorAll('a.modal');
+                        for (var i = 0; a.length > i; i++) {
+                            a[i].onclick = function (e) {
+                                collapseContent2(mainMenu);
+                                mainMenu.style.display = "none";
+                                var menu = m.$el.children[1];
+                                menu.style.display =  'none';
+                                _.extends.methods.open(e);
+                                if(overlay){
+                                    overlay.style.visibility = "hidden";
+                                    overlay.style.opacity = 0;
+                                }
+                                return false;
+                            }
+                        }
+                    }
+                });
+                function collapseContent2(e, i, c) {
+                    var d = parseInt(e.style.width);
+                    if (!d) {
+                        d = e.offsetWidth;
+                    }
+                    if (i > 0) {
+                        d += 20;
+                        if (d > i)
+                            d = i;
+                        e.style.width = d + 'px';
+                        if (i > d) {
+                            setTimeout(collapseContent2.bind(null, e, i), 20, c);
+                        }
+                    } else {
+                        d -= 20;
+                        if (0 > d)
+                            d = 0;
+                        e.style.width = d + 'px';
+                        if (d > 0) {
+                            setTimeout(collapseContent2.bind(null, e, i), 20, c);
+                        } else if (c)
+                            c();
+                    }
+                }
+
+                if(x[0])
+                x[0].addEventListener("click", function () {
+                    var style = window.getComputedStyle(mainMenu);
+                    var pageHeader=document.querySelector('#page-header');
+                    mainMenu.style.top = pageHeader.offsetHeight+'px';
+                    if (style.display === "none") {
+                        if (!overlay) {
+                            overlay = document.createElement("div");
+                            overlay.classList.add("v-overlay");
+                            overlay.style.padding = "40px";
+                            overlay.addEventListener("click", function () {
+                                collapseContent2(mainMenu, 0, function () {
+                                    overlay.style.visibility = "hidden";
+                                    overlay.style.opacity = 0;
+                                    mainMenu.style.display = "none";
+                                });
+                            });
+                            document.body.appendChild(overlay);
+                        }
+                        overlay.style.visibility = "unset";
+                        overlay.style.opacity = "unset";
+                        mainMenu.style.zIndex = 1001;
+                        mainMenu.style.width = '0px';
+                        mainMenu.style.display = "block";
+                        collapseContent2(mainMenu, 300);
+                    } else {
+                        collapseContent2(mainMenu);
+                        overlay.style.visibility = "hidden";
+                        overlay.style.opacity = 0;
+                        mainMenu.style.display = "none";
+
+                    }
+                });
+                var a=document.querySelectorAll('.tre > li > ul > li > a');
+                for(var ai=0;a.length>ai;ai++){
+                    var ns=a[ai].nextElementSibling;
+                    if(ns){
+                        if(ns.classList)
+                            ns.classList.add('collapsed');
+                        else
+                            ns.className='collapsed';
+                        a[ai].onclick=function(e){
+                            var e2=this;
+                            e.stopPropagation();
+                            try{
+                            e2.nextElementSibling.classList.toggle('collapsed');
+                        }catch(e){
+                            console.error(e);
+                        }
+                            return false;
+                        };
+                    }
+                }
+            </script>
+        </div>
+        <v-growl id="growl"></v-growl>
+        <script>
+            new Vue({el:'#growl',mounted(){_.growl=this.$children[0];}});
+        </script></body>
+</html>

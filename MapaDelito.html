@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+ <!--FONT AMESONE-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+ <!--FONT DM Serif Display-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+
+
+
+ <!--CUSTOM CSS-->
+ <link rel="stylesheet" href="styles.css">
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                concrete:'#95a5a6',
+                carrot :'#e67e22',
+                turquoise:'#1abc9c',
+                lightblueballerina:'c8d6e5',
+                pink:'#ff49db',
+                dark_blue:'hsl(228, 39%, 23%)',
+              }
+            }
+          }
+        }
+      </script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""/>
+
+
+    <title>Observatorio Provincial Sullana</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+             <img src="imagenes/logo observatorio sullana.png"/>
+         </div>
+            
+
+        <div class="menu-btn">
+            <i class="fas fa-bars fa-1.7x"></i>
+
+        </div> 
+
+   
+        <div class="container">
+            <nav class="nav-main">
+            
+                <ul class="nav-menu">
+                    <li>
+                        <a href="index.html">Inicio </a>
+                    </li>
+                    <li>
+                        <a href="#">Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="Indicadores.html">Indicadores</a>
+                    </li>
+                    <li>
+                        <a href="noticias.html">Noticias</a>
+                    </li>
+                    <li>
+                        <a href="#">Servicios</a>
+                    </li>
+                
+
+                </ul>
+                <ul class="nav-menu-right">
+                    <li>
+                         <a href="#">
+                                <i class="fas fa-search">
+
+                                </i>
+                        </a>
+                    </li>
+                 </ul>
+
+             </nav>
+        </div>
+    </header>
+    <!--CUERPO-->
+    <div>
+
+        <!--OPCIONES (DISTRITO; MES Y AÑO)-->
+
+    <div class="mapadelito1">
+
+        
+        
+    
+        <div class="opcionesmapadelito"><img  src="imagenes/muni_sullana_1.png" style="padding:12px; width:350px; height: 100px;">
+        </a> <div style="height: calc(100% - 81px); overflow-y: auto;">
+    
+    
+    
+        <div class="params v-form" style="padding: 5px;"><button type="button" class="_ ui-widget v-state-default ui-corner-all v-button ui-button-text-only" value="SULLANA" style="display: block;"><span></span>SULLANA</button>
+    
+        <label>Distrito:</label> <div name="district" style="position: relative;"><select required="required" style="width: 100%;"><option value="">Select One...</option> <div storage="district">       
+        </div><option value="200601">SULLANA</option>
+        <option value="200602">BELLAVISTA</option><option value="200603">IGNACIO ESCUDERO</option><option value="200604">LANCONES</option>
+        <option value="200605">MARCAVELICA</option><option value="200606">MIGUEL CHECA</option><option value="200607">QUERECOTILLO</option>
+        <option value="200608">SALITRAL</option></select><!----><!----></div> <!----> <!----> 
+        
+        <div><div style="display: inline-block; width:150px;"><label>Año</label> <input class="label_año" type="number" vmodel.number="value"  value="2024"></div> 
+        <div style="display: inline-block; width: 40%;"><label class="label_mes">Mes:</label> <div value="3" style="position: relative; display: block; width: 100%;"><select style="width: 100%;">
+        <option>Select One...</option> <option value="1">ENERO</option><option value="2">FEBRERO</option><option value="3">MARZO</option><option value="4">ABRIL</option><option value="5">MAYO</option>
+        <option value="6">JUNIO</option><option value="7">JULIO</option><option value="8">AGOSTO</option><option value="9">SEPTIEMBRE</option><option value="10">OCTUBRE</option>
+        <option value="11">NOVIEMBRE</option><option value="12">DICIEMBRE</option></select><!----><!----></div></div></div> <!----> 
+    
+    
+        <div class="bold" style=" font-size: 18px; padding: 5px;">Resumen de Delitos</div> <div class="v-datatable v-resize" columns="2" style="background-color: #242628; color: white;"><!----><!----><!----><div class=""><table class="v-table"><thead><tr><!----><th><div class="tablalogo">Logo</div></th><th><div class="tablatipo">TIPO</div></th><th><div class="tablacantidad">CANTIDAD</div></th></tr></thead><tbody class="v-datatable-data"><tr class=""><!----><td width="24" text-aling="center" class="x-shape"><span data-size="10"><img src="imagenes/marcadoresnav/marker_negro.png" style="display: inline-block;width: 40px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            SICARIATO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_homicidio.png" style="display: inline-block; width: 40px; margin: auto; justify-items: center;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            HOMICIDIO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_aborto.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            ABORTO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_Lesiones.png" style="display: inline-block; width: 30px; margin: auto;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            LESIONES</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_violacion_libertad_personal.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            VIOLACIÓN LIBERTAL PERSONAL</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_violacion_intimidad.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            VIOLACIÓN INTIMIDAD</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_violacion_domicilio.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            VIOLACIÓN DOMICILIO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_violacion_libertad_sexual.png"  style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            VIOLACIÓN LIBERTAL SEXUAL</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24" class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_ofensas_al_pudor.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            OFENSA AL PUDOR PÚBLICO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"> <img src="imagenes/marcadoresnav/marker_hurto.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            HURTO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"> <img src="imagenes/marcadoresnav/marker_robo.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            ROBO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24" class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_apropiacion_ilicita.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            APROPIACIÓN ILÍCITA</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"> <img src="imagenes/marcadoresnav/marker_estafas.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            ESTAFAS</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24"  class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_microcomercializacion_drogas.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            MICROCORMECIALIZACIÓN DE DROGAS</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24" class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_pandillaje_pernicioso.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            PANDILLAJE PERNICIOSO</td> <td header="CANTIDAD" width="60" sort="2" class="right">¿?</td></tr><tr class=""><!----><td width="24" class="x-shape"><span data-size="15"><img src="imagenes/marcadoresnav/marker_tenencia_ilegal_armas.png" style="display: inline-block; width: 30px;"><canvas style="width: 18px; height: 18px;" width="18" height="18"></canvas></span></td> <td header="TIPO" sort="1">
+            
+            
+            TENENCIA ILEGAL DE ARMAS</td> <td header="CANTIDAD" width="60" sort="2" class="right">9</td></tr><!----></tbody></table></div><div class="v-table-summary"><table class="v-table v-table-summary"><tr>
+            <!----><td class="tablalogo"></td> <td>TOTAL</td> <td class="tablacantidad">¿?</td></tr></table></div><div class="hide filters"></div></div> <div columns="2" layout="grid" style="margin-top: 10px;"><button type="button" class="_ ui-widget v-state-default ui-corner-all v-button obresec ui-button-text-only" value="Generar Reporte" style="width: calc(47% - 2px);"><span></span>Generar Reporte</button> <button type="button" class="_ ui-widget v-state-default ui-corner-all v-button obresec xyz ui-button-text-only" value="Descargar Mapa" style="width: calc(53% - 2px);"><span></span>Descargar Mapa</button></div></div> <div style="height: 0px; width: 280px; overflow: auto;"><div id="map2" style="background-color: rgb(102, 255, 102); width: 3000px; height: 3000px;"></div> <img id="company-logo" src="/fs/logo_white.jpg"> <img id="compass" src="/obresec/compass.png"></div></div> <div class="ui-panel" style="display: none; height: 630px;"><div class="v-panel-titlebar v-widget-header ui-helper-clearfix ui-corner-all"><span class="v-panel-title">Descargar Mapa</span></div><div class="v-panel-content v-dialog-content v-widget-content"><div class="v-form" style="padding: 10px;"><fieldset class="v-fieldset"><legend><!----><span>Tipo</span></legend><div><div value="1"><label class="v-radio" style="font-weight: normal !important; display: block;"> Simple<input type="radio" value="1" name="input_3"><span class="checkmark"></span></label> <label class="v-radio" style="font-weight: normal !important; display: block;"> Agrupado<input type="radio" value="2" name="input_3"><span class="checkmark"></span></label> <label class="v-radio" style="font-weight: normal !important; display: block;"> Calor<input type="radio" value="3" name="input_3"><span class="checkmark"></span></label></div></div></fieldset> <fieldset class="v-fieldset"><legend><!----><span>Formato Archivo</span></legend><div><div value="PDF"><label class="v-radio" style="font-weight: normal !important; display: block;"> PDF<input type="radio" value="PDF" name="input_4"><span class="checkmark"></span></label> <label class="v-radio" style="font-weight: normal !important; display: block;"> PNG<input type="radio" value="PNG" name="input_4"><span class="checkmark"></span></label></div></div></fieldset> <center><button type="button" class="_ ui-widget v-state-default ui-corner-all v-button v-button-text-icon-left" icon="fa-download" value="Descargar"><i class="fa fa-download"></i>Descargar</button></center></div></div></div></div></div>
+
+
+
+    </div>                                     
+
+
+
+    <!--MAPA SULLANA DEL DELITO-->
+
+        <div id="mapa_delito" style="height: 1200px;border: 1px solid rgb(187, 187, 187); width: calc(100% - 301px); display: inline-block; width: 74%;"></div>
+
+
+
+
+   
+
+
+        
+<!--PIE DE PAGINA-->
+
+<div class="footer-links">  
+    <div class="footer-container">
+        <ul>
+            <li>
+                <a class="#">
+                    <img src="imagenes/muni_sullana_1.png">             
+                   
+                </a>
+            </li>
+            
+        </ul>
+        <ul>
+            <li>
+                <a class="footer-medio">
+                    <h3>MUNICIPALIDAD PROVINCIAL DE SULLANA</h3> 
+                    <p> Trans. Tarapaca s/n, Sullana 20101</p>  
+                    <p>Teléfono: (073) 502730</p>         
+                   
+                </a>
+            </li>
+            
+        </ul>
+        <ul>
+            <li>
+                <a class="#">
+                    <h3>CONTÁCTANOS</h3> 
+                    <p> Observatorio: Dirección: 38G3+CFM, Sullana 20103</p>  
+                    <p>Serenazgo MPS-Sullana: 939410856 - 073-490960</p>
+                    <div class="redes_sociales"> 
+                        <a href="https://www.facebook.com/MuniSullana">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@municipalidaddesullana7921">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                  
+
+                    </div>               
+                   
+                </a>
+            </li>
+            
+        </ul>
+
+    </div>
+    
+</div>
+
+<footer class="footer">
+    <h3>ARIS TINOCO - DERECHOS RESERVADOS</h3>
+
+</footer>
+<!--SCROLL REVEAL-->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!--CUSTOM JS-->
+<script src="main.js"></script>
+
+<!--MAPA DELITO-->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+
+<script src="MapaDelito.js"></script>
+
+
+   
+</body>
+</html>
